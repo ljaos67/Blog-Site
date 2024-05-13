@@ -1,0 +1,6 @@
+<form action = "/editPostSubmit" method = "POST">
+    <input type="hidden" name="index" value="<%= index %>">
+    <input type = "text" id = "title" name = "title" value = "<%=title%>"required><br><br>
+    <textarea id="blogText" name="blogText" rows="4" cols="50" required><%=blogText%></textarea><br><br>
+    <input type="submit" value = "save"><br><br>
+</form>

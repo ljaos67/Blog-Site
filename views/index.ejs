@@ -1,0 +1,32 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="container mt-3">
+    <% if(locals.blogStorage.length > 0){ %>
+        <div class="list-group mb-3">
+            <% blogStorage.forEach((post, index) => { %>
+                <div class="list-group-item">
+                    <h5 class="mb-1"><%= post[0] || "Title Missing!" %></h5>
+                    <div class="btn-group">
+                        <form action="/readPost" method="POST">
+                            <input type="hidden" name="itemId" value="<%= index %>">
+                            <button class="btn btn-link" type="submit">read</button>
+                        </form>
+                        <form action="/editPostInit" method="POST">
+                            <input type="hidden" name="itemId" value="<%= index %>">
+                            <button class="btn btn-link" type="submit">edit</button>
+                        </form>
+                        <form action="/deletePost" method="POST">
+                            <input type="hidden" name="itemId" value="<%= index %>">
+                            <button class="btn btn-link text-danger" type="submit">delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>
+    <form action="/createPost" method="POST" class="mt-3">
+        <input class="btn btn-primary rounded-pill px-3" type="submit" id="newPost" name="newPost" value="create">
+    </form>
+</div>
+
+<%- include("./partials/footer.ejs") %>

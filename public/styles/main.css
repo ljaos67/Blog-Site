@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+}
+form {
+    display: inline; 
+}
+body {
+    font-family: 'Lato', 'sans-serif';
+}
